@@ -25,13 +25,24 @@ namespace Blog.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreatorPage(string content)
+        public IActionResult CreatorPage(BlogEntry entry)
         {
-            BlogEntry entry=new BlogEntry();
-            entry.Content = content;
-            entry.Id = Guid.NewGuid();
+            if (entry.Id == Guid.Empty)
+            {
+                // new article
+                BlogEntry newEntry = new BlogEntry();
+                newEntry.Content = entry.Content;
+                newEntry.Id = Guid.NewGuid();
+                Posts.Add(newEntry);
+            }
+            else
+            {
+                //Existing article
+                BlogEntry existingEntry=Posts.FirstOrDefault(x => x.Id == entry.Id);
+                existingEntry.Content = entry.Content;
+            }
 
-            Posts.Add(entry);
+
             return RedirectToAction("Index");
         }
     }
