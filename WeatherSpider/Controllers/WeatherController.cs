@@ -46,7 +46,7 @@ namespace WeatherSpider.Controllers
             var rm = new WeatherDataRm(
                 chart: new Chart(
                     caption: "Weather on Kredarica",
-                    subCaption: "Based on Time periox",
+                    subCaption: "Based on last year period",
                     numberPrefix: "",
                     theme: "fusion",
                     radarfillcolor: "#ffffff"
