@@ -1,5 +1,4 @@
 ﻿
-
 using System.ComponentModel.DataAnnotations;
 
 namespace BooksLibrary.Models
@@ -10,11 +9,11 @@ namespace BooksLibrary.Models
         [MaxLength(40), MinLength(1)]
         [Required(ErrorMessage = "Please enter Title of The book")]
         [Display(Name = "Naslov Knjige")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
         [MaxLength(40), MinLength(1)]
         [Required(ErrorMessage = "Please enter CallNumber")]
         [Display(Name = "Šifra knjige")]
-        public string CallNumber { get; set; }
-        public string? Author { get; set; }
+        public string? CallNumber { get; set; }
+        public Author Author { get; set; }
     }
 }

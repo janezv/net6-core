@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
-        public string SecondName { get; set; }
+        public string LastName { get; set; }
         public string Country { get; set; }
-        List<Book> Books { get; set; }
+        public ICollection<Book> Books { get; set; }
     }
 }

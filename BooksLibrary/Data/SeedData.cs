@@ -13,13 +13,37 @@ namespace BooksLibrary.Data
                 serviceProvider.GetRequiredService
                     <DbContextOptions<LibraryBooksContext>>()))
             {
+                if (context.Author.Any())
+                {
+                    return;
+                }
+                context.Author.AddRange(
+                    new Author { FirstName = "Denis", LastName = "Panjuta", Country = "Germany" },
+                    new Author { FirstName = "Mosh", LastName = "Hamedani", Country = "USA" }
+                );
+                context.SaveChanges();
+
                 if (context.Books.Any())
                 {
                     return;
                 }
                 context.Books.AddRange(
-                    new Book { Title="Tiny C# Projects", Author= "Denis Panjuta", CallNumber ="AXD 2029"},
-                    new Book { Title = "Tiny Android Projects", Author="EU tutorial" , CallNumber = "AXQ 2229" }
+                    new Book { 
+                        Title = "Tiny C# Projects", 
+                        CallNumber = "gh034-567", 
+                        Author=context.Author.Where(x=>x.LastName=="Panjuta").FirstOrDefault() }
+                    , new Book
+                    {
+                        Title = "React",
+                        CallNumber = "re034-567",
+                        Author = context.Author.Where(x => x.LastName == "Hamedani").FirstOrDefault()
+                    }
+                    , new Book
+                    {
+                        Title = "Angular",
+                        CallNumber = "Ang034-567",
+                        Author = context.Author.Where(x => x.LastName == "Hamedani").FirstOrDefault()
+                    }
                 );
                 context.SaveChanges();
             }

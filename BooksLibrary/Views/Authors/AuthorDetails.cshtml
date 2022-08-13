@@ -1,0 +1,17 @@
+﻿@model BooksLibrary.ViewModels.AuthorVM
+
+@{
+    ViewData["Title"] = "AuthorDetails";
+}
+
+<h1>@Model.FirstName</h1>
+<h1>@Model.LastName</h1>
+<h1>@Model.Country</h1>
+<hr />
+@foreach(var item in @Model.Books)
+{
+    <p>@item.Title</p>
+    <p>@item.CallNumber</p>
+}
+
+
