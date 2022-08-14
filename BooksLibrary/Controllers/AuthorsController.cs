@@ -26,5 +26,6 @@ namespace BooksLibrary.Controllers
             AuthorVM authorVM = mapp.authro2AuthorMV(_context.Author.Find(id));
             return View(authorVM);
         }
+
     }
 }

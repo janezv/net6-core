@@ -10,8 +10,28 @@
 <hr />
 @foreach(var item in @Model.Books)
 {
-    <p>@item.Title</p>
-    <p>@item.CallNumber</p>
+    <script type="text/javascript">
+    $(function () {
+       
+        var book = {Id:@item.Id,Title: "@item.Title", CallNumber: "@item.CallNumber"}
+
+        $.ajax(
+            {
+                type: "POST",
+                url:'/authorsAjax/index',
+                data: book,
+                success: function (data) {   // success callback function
+                    console.log('Uspešen klic');
+                    console.log(data)
+                    return data;
+                },
+                error: function (jqXhr, textStatus, errorMessage) { // error callback 
+                    console.log(errorMessage);;
+                }
+        });
+
+    });
+    </script>
 }
 
 

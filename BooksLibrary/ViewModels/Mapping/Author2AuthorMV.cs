@@ -28,6 +28,7 @@ namespace BooksLibrary.ViewModels.Mapping
             foreach (var book in booksDb)
             {
                 BookVM bookvm = new BookVM();
+                bookvm.Id = book.Id;
                 bookvm.Title = book.Title;
                 bookvm.CallNumber = book.CallNumber;
                 vm.Books.Add(bookvm);
