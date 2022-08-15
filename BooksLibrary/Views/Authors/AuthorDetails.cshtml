@@ -4,17 +4,50 @@
     ViewData["Title"] = "AuthorDetails";
 }
 
-<h1>@Model.FirstName</h1>
-<h1>@Model.LastName</h1>
-<h1>@Model.Country</h1>
+<form method="post" action="/Authors/AuthorsPost">
+    <div class="card">
+        <h3 class="m-3">Autor</h3>
+        <div class="card-body">
+            <div class="form-group m-3">
+                <label for="exampleInputEmail1">Ime</label>
+                <input name="FirstName" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Authror name" value="@Model.FirstName">
+            </div>
+            <div class="form-group m-3">
+                <label for="exampleInputEmail1">Priimek</label>
+                <input name="LastName" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Authror name" value="@Model.LastName">
+            </div>
+            <div class="form-group m-3">
+                <label for="exampleInputEmail1">Država</label>
+                <input name="Country" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Authror name" value="@Model.Country">
+            </div>
+        </div>
+    </div>
+
+
 <hr />
 @foreach(var item in @Model.Books)
 {
+    <div class="card">
+        <div class="card-body">
+            <input type="hidden" name="Id" value="@item.Id" />
+            <div class="form-group m-3">
+                <label for="exampleInputEmail1">Ime</label>
+                <input name="Title" id="Title_@item.Id" value="@item.Title" class="cbook_@item.Id form-control" placeholder="Enter Authror name">
+            </div>
+            <div class="form-group m-3">
+                <label for="exampleInputEmail1">Ime</label>
+                <input name="CallNumber" id="CallNumber_@item.Id" value="@item.CallNumber" class="cbook_@item.CallNumber cbook_@item.Id form-control" placeholder="Enter Authror name">
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
+
+    var book = { Id: @item.Id, Title: "@item.Title", CallNumber: "@item.CallNumber" };
+
     $(function () {
        
-        var book = {Id:@item.Id,Title: "@item.Title", CallNumber: "@item.CallNumber"}
-
+        // initialize ajax
         $.ajax(
             {
                 type: "POST",
@@ -30,8 +63,35 @@
                 }
         });
 
+        // on mouse move ajax
+        $(function () {
+                    $('input').on('mouseout', function () {
+
+                book.Id = @item.Id;
+                book.Title = $("#Title_@item.Id").val();
+                book.CallNumber = $("#CallNumber_@item.Id").val();
+
+                $.ajax(
+                    {
+                        type: "POST",
+                        url: '/authorsAjax/index',
+                        data: book,
+                        success: function (data) {   // success callback function
+                            console.log('Uspešen klic');
+                            console.log(data)
+                            return data;
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) { // error callback
+                            console.log(errorMessage);;
+                        }
+                    });
+            });
+        });
     });
     </script>
 }
 
+<button type="submit" class="btn-primary m-1" > Shrani </button>
+
+</form>
 

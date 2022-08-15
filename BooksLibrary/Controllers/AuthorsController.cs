@@ -27,5 +27,11 @@ namespace BooksLibrary.Controllers
             return View(authorVM);
         }
 
+        [HttpPost]
+        public IActionResult AuthorsPost(List<string> Title, List<string> CallNumber, List<int> Id,AuthorVM atvm)
+        {
+            return RedirectToAction("Index");
+        }
+
     }
 }
