@@ -18,8 +18,8 @@ namespace BooksLibrary.Data
                     return;
                 }
                 context.Books.AddRange(
-                    new Book { Title="Tiny C# Projects", Author= "Denis Panjuta", CallNumber ="AXD 2029"},
-                    new Book { Title = "Tiny Android Projects", Author="EU tutorial" , CallNumber = "AXQ 2229" }
+                    new Book { Title="Tiny C# Projects", AuthorId= 3, CallNumber ="AXD 2029"},
+                    new Book { Title = "Tiny Android Projects", AuthorId=4 , CallNumber = "AXQ 2229" }
                 );
                 context.SaveChanges();
             }

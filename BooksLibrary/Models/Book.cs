@@ -15,6 +15,6 @@ namespace BooksLibrary.Models
         [Required(ErrorMessage = "Please enter CallNumber")]
         [Display(Name = "Šifra knjige")]
         public string CallNumber { get; set; }
-        public string? Author { get; set; }
+        public int? AuthorId { get; set; }
     }
 }
