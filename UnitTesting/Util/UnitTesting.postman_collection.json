@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "e8601dd5-279f-49e7-ab16-ea784c460804",
+		"name": "UnitTesting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3708638"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
