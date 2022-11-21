@@ -1,0 +1,8 @@
+https://youtu.be/dtthbiP3SE0?t=2780
+
+https://localhost:447/
+
+https://www.youtube.com/watch?v=CdE6rVfPJ9I&t=2048s&ab_channel=SameerSaini
+
+Event binding
+https://angular.io/guide/event-binding
