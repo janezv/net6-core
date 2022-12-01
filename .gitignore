@@ -368,7 +368,4 @@ appsettings.json
 Manual.odt
 
 
-NetAngular/SuperHero.UI/node_modules/
-NetAngular/SuperHero.UI/dist
-NetAngular/SuperHero.UI/package-lock.json
-NetAngular/SuperHero.UI/angular.json
+**/NetAngular/SuperHero.UI/
