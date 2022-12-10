@@ -1,0 +1,12 @@
+<h1>List of Parents</h1>
+<hr>
+<div *ngIf="Parents.length>0">
+<div *ngFor="let parent of Parents">
+    <div id="{{parent.id}}" >
+      <a href="https://www.google.com" style="text-decoration: none; color: black;">
+       <p>FistName:<b>{{parent.firstName}}</b> Last Name: <b> {{parent.lastName}}</b></p>
+      </a>
+    </div>
+    <hr>
+</div>
+</div>

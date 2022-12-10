@@ -9,13 +9,13 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ChildComponentComponent {
 
-  @Input() childComponent : child ={id:0,name:"ahoj",count:4};
+  @Input() childComponent : child ={id:0,fistName:"ahoj",lastName:"l ahoj"};
 
   constructor(){}
 
   ngOnInit(){
-    console.log(this.childComponent.name)
-    console.log(this.childComponent.count)
+    console.log(this.childComponent.fistName)
+    console.log(this.childComponent.lastName)
   }
 
 }

@@ -1,9 +1,21 @@
 <h1>This is a Parent components</h1>
 <a href="https://dev.to/tonyhicks20/angular-two-way-binding-between-parent-and-child-components-16kl">example of two way binding</a>
-<hr>
+<div>
+  <div>
+    <input type="text" value="{{Parent.id}}" >
+    <br>
+   <input type="text" value="{{Parent.firstName}}" >
+   <br>
+   <input type="text" value="{{Parent.lastName}}" >
+  </div>
+</div>
 
-<div *ngIf="children.length > 0">
-  <div *ngFor="let child of children">
+
+<input type="text">
+
+<hr>
+<div *ngIf="Children.length > 0">
+  <div *ngFor="let child of Children">
     <app-child-component [childComponent]="child"></app-child-component>
   </div>
 </div>

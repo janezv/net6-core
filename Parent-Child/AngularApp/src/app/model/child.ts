@@ -2,6 +2,7 @@
 
 export class child{
   id:number=1;
-  name?:string;
-  count?: number;
+  fistName?: string;
+  lastName?: string;
+  dateOfBirth?: Date;
 }

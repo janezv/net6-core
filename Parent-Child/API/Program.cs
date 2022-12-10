@@ -13,8 +13,15 @@ builder.Services.AddDbContext<ParentChildrenContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+//builder.Services.AddCors(options => options.AddPolicy(name: "Parent-Child-Appi",
+//  policy =>
+//  {
+//      policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+//  }));
 
 var app = builder.Build();
+
+//app.UseCors("Parent-Child-Appi");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
