@@ -7,9 +7,9 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './child-component.component.html',
   styleUrls: ['./child-component.component.css']
 })
-export class ChildComponentComponent {
+export class ChildComponent {
 
-  @Input() childComponent : child ={id:0,fistName:"ahoj",lastName:"l ahoj"};
+  @Input() childComponent : child ={id:0,fistName:"Hard coded",lastName:"child"};
 
   constructor(){}
 
